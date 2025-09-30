@@ -38,7 +38,7 @@ class UserListViewModel: ObservableObject {
             } catch {
                 // Hata durumunda arayüzü güncelle.
                 await MainActor.run {
-                    self.errorMessage = "Veri yüklenirken bir hata oluştu: \(error.localizedDescription)"
+                    self.errorMessage = "An error occurred while loading data: \(error.localizedDescription)"
                     self.isLoading = false
                 }
             }

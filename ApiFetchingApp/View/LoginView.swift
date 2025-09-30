@@ -30,21 +30,21 @@ struct LoginView: View {
         // Yeni navigasyon mimarisi: NavigationStack
         NavigationStack(path: $path) {
             VStack(spacing: 20) {
-                Text("Hoş Geldiniz!")
+                Text("Welcome!")
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 
                 // Kullanıcı adı ve şifre alanları
-                TextField("Kullanıcı Adı", text: $username)
+                TextField("User Name", text: $username)
                     .textFieldStyle(.roundedBorder)
                     .padding(.horizontal)
                 
-                SecureField("Şifre", text: $password)
+                SecureField("Password", text: $password)
                     .textFieldStyle(.roundedBorder)
                     .padding(.horizontal)
                 
                 // Giriş butonu
-                Button("Giriş Yap") {
+                Button("Login") {
                     // Kullanıcı girişini doğrula
                     if username == validUsername && password == validPassword {
                         // Yeni navigasyon yapısı: Yığına bir değer ekle.
@@ -52,12 +52,12 @@ struct LoginView: View {
                         path.append(AppNavigationPath.userList)
                     } else {
                         // Hatalı giriş durumunda basit bir uyarı verebiliriz.
-                        print("Hatalı kullanıcı adı veya şifre!")
+                        print("Incorrect username or password!")
                     }
                 }
                 .buttonStyle(.borderedProminent)
             }
-            .navigationTitle("Giriş")
+            .navigationTitle("LOGIN")
             // Hatanın çözümü burada: Yığına eklenen değere göre yönlendirme yap.
             .navigationDestination(for: AppNavigationPath.self) { path in
                 switch path {

@@ -19,7 +19,7 @@ class UserService {
         
         // 1. URL'i oluştur ve doğruluğunu kontrol et.
         guard let url = URL(string: apiURL) else {
-            throw NSError(domain: "UserServiceError", code: 100, userInfo: [NSLocalizedDescriptionKey: "Geçersiz URL"])
+            throw NSError(domain: "UserServiceError", code: 100, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
         }
         
         // 2. URLSession ile veri çekme işlemini başlat.

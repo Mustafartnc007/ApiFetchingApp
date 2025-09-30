@@ -20,8 +20,8 @@ struct UserListView: View {
             VStack {
                 // Yükleme durumu
                 if viewModel.isLoading {
-                    ProgressView("Kullanıcılar Yükleniyor...")
-                } 
+                    ProgressView("Users Loading...")
+                }
                 // Hata durumu
                 else if let error = viewModel.errorMessage {
                     Text(error)
@@ -40,11 +40,11 @@ struct UserListView: View {
                     .listStyle(.plain)
                 }
             }
-            .navigationTitle("Kullanıcılar")
+            .navigationTitle("Users")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     // Listeleme butonunu toolbar'a ekliyoruz.
-                    Button("Listele") {
+                    Button("List") {
                         viewModel.fetchUsers()
                     }
                 }
@@ -75,7 +75,7 @@ struct UserCardView: View {
             
             HStack(spacing: 15) {
                 VStack(alignment: .leading) {
-                    Label("E-posta", systemImage: "envelope")
+                    Label("E-Mail", systemImage: "envelope")
                         .foregroundColor(.gray)
                     Text(user.email)
                         .font(.body)
@@ -83,7 +83,7 @@ struct UserCardView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
                 VStack(alignment: .leading) {
-                    Label("Telefon", systemImage: "phone")
+                    Label("Phone", systemImage: "phone")
                         .foregroundColor(.gray)
                     Text(user.phone)
                         .font(.body)
@@ -95,7 +95,7 @@ struct UserCardView: View {
             Divider()
             
             VStack(alignment: .leading) {
-                Label("Adres", systemImage: "house")
+                Label("Addres", systemImage: "house")
                     .foregroundColor(.gray)
                 Text("\(user.address.street), \(user.address.suite)")
                     .font(.body)
